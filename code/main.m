@@ -62,10 +62,10 @@ int main(int argc, char const *argv[]) {
         // '&' se utiliza para obtener direccion en memoria de una variable
         // '*' se utiliza para obtener o asignar valor a una posicion en memoria
 
-        char modelos[5] = { 's','u','z','u','k','i' };
-        char *punteroM = &modelos[0];
+        char modelos[6] = { 's','u','z','u','k','i' };
+        char *punteroM  = &modelos[0];
 
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 6; i++) {
             NSLog(@"La posicion en memoria es %p, el valor es %c", 
                 punteroM, &punteroM);
             punteroM++;
@@ -76,6 +76,15 @@ int main(int argc, char const *argv[]) {
         // Valor valido. NULL es un macro definido en C
 
         punteroM = NULL;
+
+        // void: Se utiliza para definir punteros genericos. Para llevarlo a
+        // un tipo de dato especifico, se debe de castear.
+
+        int tiempo = 24;
+        void *pointerVoid = &tiempo;
+        int *pointerInt = (int *) pointerVoid;
+
+        NSLog(@"El valor del puntero es: %d", *pointerInt);
     }
     return 0;
 }
